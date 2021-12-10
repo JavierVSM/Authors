@@ -1,0 +1,31 @@
+<a href="/add">Add an Author</a>
+<br>
+<p>We have quotes by:</p>
+<table>
+    <thead>
+        <th>author</th>
+        <th>Actions avaliable</th>
+    </thead>
+    <tr *ngFor = "let author of authors">
+        <td>{{author.name}}</td>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <a href="/edit/{{author._id}}"><button>Edit</button></a>
+                    </td>
+                    <td>
+                        <form (submit)= "deleteAuthor($event)">
+                            <input type="hidden" value="{{author._id}}" id="id">
+                            <button type="submit">
+                                Delete
+                            </button>
+                        </form> 
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+

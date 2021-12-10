@@ -1,0 +1,24 @@
+<a href="/home">Home</a>
+<br>
+<p>Edit this author:</p>
+<div  *ngIf="authorDetail">
+
+    <form (submit)="edit($event)">
+        <h2>Change {{authorDetail.name}}</h2>
+        <div>
+            <label>Name:</label>
+            <input type="text" name="newname" id="newname" value="{{authorDetail.name}}" [(ngModel)]="editData.name" >
+        </div>
+        <div>
+            <input type="hidden" value="{{authorDetail._id}}" id="id">
+            <button type="submit">Change</button>
+        </div>
+    </form>
+</div>
+<a href="/home"><button>Cancel</button></a>
+<div *ngIf="error">
+    {{error}}
+</div>
+<div *ngIf="finalmessage">
+    {{finalmessage}}
+</div>
